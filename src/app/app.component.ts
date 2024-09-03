@@ -9,5 +9,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-app';
+  title = 'Hello World';
+  manyWorlds: string[] = ['World', 'Universe', 'Multiverse'];
 }
