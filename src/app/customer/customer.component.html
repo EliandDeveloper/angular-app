@@ -1,0 +1,15 @@
+
+<div class="container" style="display: flex; justify-content: center ;">
+    <div class="card" style="width: 19rem; height: 17rem;">
+        <div class="card-body">
+            <label ><b>First Name:</b></label>
+                <h5 class="card-title">{{customer.first_name}}</h5>
+                <p class="card-text"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Last Name:</b> {{customer.last_name}}</li>
+            <li class="list-group-item"><b>Email:</b> {{customer.email}}</li>
+            <li class="list-group-item"><b>Address:</b> {{customer.address.city}}</li>
+            <li class="list-group-item"><b>State:</b> {{customer.address.state}}</li>
+        </ul>
+</div>
