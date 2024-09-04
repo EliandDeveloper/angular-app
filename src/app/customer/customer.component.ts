@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 
 import { CUSTOMER_DATA } from '../customer-data';
 
-const randomCustomer = Math.floor(Math.random() * CUSTOMER_DATA.length);
-
 @Component({
   selector: 'app-customer',
   standalone: true,
@@ -12,5 +10,11 @@ const randomCustomer = Math.floor(Math.random() * CUSTOMER_DATA.length);
   styleUrl: './customer.component.css'
 })
 export class CustomerComponent {
-  customer = CUSTOMER_DATA[randomCustomer];
+
+  customer:any;
+
+  callCustomer():any {
+    const randomCustomer = Math.floor(Math.random() * CUSTOMER_DATA.length);
+    return this.customer = CUSTOMER_DATA[randomCustomer];  
+  }
 }

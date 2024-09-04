@@ -1,6 +1,6 @@
 
 <div class="container" style="display: flex; justify-content: center ;">
-    <div class="card" style="width: 19rem; height: 17rem;">
+    <div class="card" style="width: 19rem; height: 20rem;">
         <div class="card-body">
             <label ><b>First Name:</b></label>
                 <h5 class="card-title">{{customer.first_name}}</h5>
@@ -11,5 +11,9 @@
             <li class="list-group-item"><b>Email:</b> {{customer.email}}</li>
             <li class="list-group-item"><b>Address:</b> {{customer.address.city}}</li>
             <li class="list-group-item"><b>State:</b> {{customer.address.state}}</li>
+            <li class="list-group-item">
+                <button type="button" (click)="callCustomer()" class="btn btn-primary">Another Customer</button>
+            </li>
+
         </ul>
 </div>
