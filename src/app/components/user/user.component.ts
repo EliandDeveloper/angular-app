@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Customer } from '../../models/customerModel';
+import { CUSTOMER_DATA } from '../../customer-data';
 
 @Component({
   selector: 'app-user',
@@ -9,4 +11,29 @@ import { Component } from '@angular/core';
 })
 export class UserComponent {
 
+  @Output() sendUser = new EventEmitter<Customer>();
+
+  customer: Customer | undefined;
+  
+  user: string = '';
+  userCalled: any | undefined;
+
+  callUser(inputValue:string){
+
+    CUSTOMER_DATA.forEach(customer => {
+        if (inputValue == customer.first_name) {
+           this.customer = customer;
+           this.sendOuput();
+           this.user = inputValue;
+           this.userCalled = true;
+        }else{
+          this.userCalled = false;
+        }
+    });
+  }
+
+  sendOuput(){
+    this.sendUser.emit(this.customer);
+    console.log(this.customer);
+  }
 }

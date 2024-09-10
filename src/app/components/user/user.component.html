@@ -1,1 +1,19 @@
-<p>user works!</p>
+<div  style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <input #userInput type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div>
+          @if(userCalled === true && user !== '') {
+            <div class="alert alert-success" role="alert">
+                User found {{user}}
+              </div>
+          }@else if(userCalled === false) {
+            <div class="alert alert-danger" role="alert">
+                That customer does not exist
+              </div>
+          }
+          </div>
+        <button type="button" (click)="callUser(userInput.value)" class="btn btn-primary">Call User</button>
+    </div>
+</div>
