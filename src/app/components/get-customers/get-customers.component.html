@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    @for(customer of customersList; track customersList){
+      <div class="col-md-4 mb-4 d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5>{{ customer.contactName }} ({{ customer.companyName }})</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <p><b>Contact Title:</b> {{ customer.contactTitle }}</p>
+            </li>
+            <li class="list-group-item">
+              <p><b>Address:</b> {{ customer.address }}, {{ customer.city }}, {{ customer.region }}, {{ customer.postalCode }}, {{ customer.country }}</p>
+            </li>
+            <li class="list-group-item">
+              <p><b>Phone:</b> {{ customer.phone }}</p>
+            </li>
+          </ul>
+          <div class="card-body">
+            <li class="list-group-item">
+              <p><b>Fax:</b> {{ customer.fax }}</p>
+            </li>
+            <li class="list-group-item">
+              <p><b>Registration Date:</b> {{ customer.fechaRegistro }}</p>
+            </li>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  
