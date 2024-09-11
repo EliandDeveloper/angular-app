@@ -1,0 +1,48 @@
+
+<form class="row g-3">
+    <div class="col-md-6">
+      <label for="inputName" class="form-label">First Name</label>
+      <input #inputName type="text" class="form-control" [(ngModel)]="customer!.first_name" id="inputName">
+    </div>
+    <div class="col-md-6">
+      <label for="inputLastName" class="form-label">Last Name</label>
+      <input #inputLastName type="text" class="form-control" [(ngModel)]="customer!.last_name" id="inputLastName">
+    </div>
+    <div class="col-12">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input #inputEmail type="email" class="form-control" id="inputEmail4" [(ngModel)]="customer!.email" placeholder="example@gmail.com">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input #inputAddress type="text" class="form-control" id="inputAddress" [(ngModel)]="customer!.address" placeholder="1234 Main St">
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">City</label>
+      <input #inputCity type="text" class="form-control" [(ngModel)]="customer!.address.city" id="inputCity">
+    </div>
+    <div class="col-md-4">
+      <label for="inputState" class="form-label">State</label>
+      <select #inputState id="inputState" [(ngModel)]="customer!.address.state" class="form-select">
+        <option selected>Choose...</option>
+        <option>Alaska</option>
+        <option>Colorado</option>
+        <option>Arizona</option>
+
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">Zip</label>
+      <input #inputZip type="text" class="form-control" [(ngModel)]="customer!.address.zip_code" id="inputZip">
+    </div>
+      <div class="col-12" style="margin-top: 1.5cm;">
+          <div class="d-grid gap-2">
+          <button type="submit" (click)="addCustomer(
+            inputName.value,
+            inputLastName.value,
+            inputEmail.value,
+            inputCity.value,
+            inputState.value,
+            inputZip.value)" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+</form>

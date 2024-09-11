@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Customer } from '../../models/customerModel';
 import { CUSTOMER_DATA } from '../../customer-data';
 
@@ -16,7 +16,7 @@ export class UserComponent {
   customer: Customer | undefined;
   
   user: string = '';
-  userCalled: any | undefined;
+  userCalled: any = null;
 
   callUser(inputValue:string){
 
