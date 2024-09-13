@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomersService } from '../../services/customers.service';
-import { NorthwindCustomer } from '../../models/northwindCustomer';
+import { GetCustomers } from '../../models/northwindCustomer';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -13,9 +13,12 @@ import { NgFor } from '@angular/common';
 export class GetCustomersComponent implements OnInit {
 
   constructor(private customerService: CustomersService) { }
-  customersList: NorthwindCustomer[] = [];
+  customersList: GetCustomers[] = [];
 
   ngOnInit(): void {
+  }
+
+  ngDoCheck(): void {
     this.getCustomers();
   }
 
