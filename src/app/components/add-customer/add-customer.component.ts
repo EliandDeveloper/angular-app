@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { Customer } from '../../models/customerModel';
-import { CUSTOMER_DATA } from '../../customer-data';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { AddCustomer } from '../../models/northwindCustomer';
+import { CustomersService } from '../../services/customers.service';
 
 @Component({
   selector: 'app-add-customer',
@@ -11,29 +10,33 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './add-customer.component.html',
   styleUrl: './add-customer.component.css'
 })
-export class AddCustomerComponent {
+export class AddCustomerComponent implements OnInit {
 
-  customer: Customer | undefined;
+  constructor(private customerService: CustomersService) { }
+  customer: AddCustomer = {
+    changeUser: 0,
+    changeDate: new Date(),
+    companyName: '',
+    contactName: '',
+    contactTitle: '',
+    address: '',
+    city: '',
+    region: '',
+    postalCode: '',
+    country: '',
+    phone: '',
+    fax: '',
+    customerID: '',
+  };
 
-  addCustomer(first_name:string, last_name:string, email:string,
-     city:string, state:string, zip:string){
-    this.customer = {
-      customer_id: CUSTOMER_DATA.length + 1,
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
-      phone_number: '',
-      date_of_birth: '',
-      registration_date: '',
-      address: {
-        city: city,
-        state: state,
-        zip_code: zip,
-        street: '',
-        country: ''
-      }
-    }
-    CUSTOMER_DATA.push(this.customer);
-    console.log(CUSTOMER_DATA);
+  ngOnInit(): void {
+  }
+
+  addCustomer() {
+    this.customerService.addCustomer(this.customer).subscribe(response => {
+      console.log('Customer added:', response);
+    }, error => {
+      console.error('Error adding customer:', error);
+    });
   }
 }
